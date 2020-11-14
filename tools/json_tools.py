@@ -5,8 +5,8 @@ Created on Sat Nov 14 13:26:45 2020
 @author: 61426
 """
 import json
-
-def create_json(data,path='config/record.json'):
+from tools import file_tools
+def create_json(data,path='config/'):
     '''
     Parameters
     ----------
@@ -18,7 +18,8 @@ def create_json(data,path='config/record.json'):
     -------
     None.
     '''
-    with open(path,"w") as f:
+    file_tools.check_dir_and_mkdir(path)
+    with open(path+'record.json',"w") as f:
         json.dump(data,f)
         print("加载入文件完成...")  
     

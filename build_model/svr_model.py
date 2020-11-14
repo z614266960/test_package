@@ -24,6 +24,27 @@ def rmse(y_true, y_pred):
 def build_svr(ID,season,predict_day,time,data_path='data/obp/',
                models_save_path='models/svr/',
                images_save_path='images/svr/'):
+    '''
+    Parameters
+    ----------
+    ID : string
+        要建模的站点
+    season : string
+        要建模的季节（3-4）
+    predict_day : int
+        要预测的天数
+    time : string
+        要预测的小时(08)
+    data_path : string
+        路径，用来训练svr的文件路径，包含10UV,msl,obp等特征
+    models_save_path : string
+        svr模型的保存路径
+    images_save_path : string
+        图片的保存路径
+    Returns
+    -------
+    None.
+    '''
     FILE_PATH = data_path+str(predict_day)+'天/'+season+'/'+time+'/'+ID+'_p.csv'
     
     orgin_data = pd.read_csv(FILE_PATH)

@@ -89,7 +89,7 @@ def build_lstm(ID,data_path='data/lstm/',
     model.add(LSTM(4, input_shape=(None,1)))
     model.add(Dense(look_after))
     model.compile(loss='mean_squared_error', optimizer='adam')
-    model.fit(trainX, trainY, epochs=1000, batch_size=16)
+    model.fit(trainX, trainY, epochs=100, batch_size=16)
     file_tools.check_dir_and_mkdir(models_save_path)
     model.save(MODEL_SAVE_PATH)
     
